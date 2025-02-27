@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Nome Azienda]</title>
+    <title>Luciano Brun</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Oswald:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <style>
+
+
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -45,8 +47,11 @@
             overflow: hidden;
         }
 
+        
+
         .company-name {
             color: #fff;
+            text-shadow: 3px 3px 3px black;
             font-size: 4.5rem;
             letter-spacing: 0.1rem;
             margin-bottom: 2rem;
@@ -56,6 +61,7 @@
 
         .hero-subtitle {
             color: rgba(255, 255, 255, 0.9);
+            text-shadow: 3px 3px 3px black;
             font-size: 1.4rem;
             max-width: 600px;
             margin: 0 auto;
@@ -93,16 +99,18 @@
         }
 
         .product-image-container {
-            height: 320px;
+            aspect-ratio: 1/1; 
             position: relative;
             overflow: hidden;
+            
         }
 
         .product-image {
             width: 100%;
-            height: 100%;
-            object-position: center;
-            transition: transform 0.4s ease;
+    height: 100%;
+    object-fit: cover; /* This prevents stretching */
+    object-position: center;
+    transition: transform 0.4s ease;
         }
 
         .product-card:hover .product-image {
@@ -234,6 +242,7 @@
 
             .product-image-container {
                 height: 250px;
+                aspect-ratio: 1/1;
             }
 
             .company-name {
@@ -277,83 +286,78 @@
         .language-switcher button:hover {
             background: rgba(255, 255, 255, 0.3);
         }
+
+
+        /* Aggiornamento Medaglie */
+        .product-summary {
+            display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 60px;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Modal */
+.product-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-content {
+    max-width: 800px;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    margin: 50px auto; /* Aggiungi questo */
+    position: relative;
+    animation: modalOpen 0.3s ease-out; /* Aggiungi animazione */
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+@keyframes modalOpen {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 1rem;
+    }
+    
+    .modal-image {
+        height: 250px;
+    }
+}
+        
     </style>
 </head>
-<script>
-    // Translations object
-    const translations = {
-        it: {
-            // Hero Section
-            heroSubtitle: "Creazioni uniche realizzate a mano con passione",
-
-            // Product 1
-            product1Title: "Siringa pneumatica",
-            product1Desc: `Siringa pneumatica volumetrica
-            con cilindro graduato in vetro trasparente,adatto a lavorare prodotti alimentari e non, da 0 mm a 50 mm,
-            0 a 100 mm, 0 a 250 mm.
-            Possibilità di azionamento con pulsante o con pedale, facile da pulire ,facile nelle regolazioni necessarie alla lavorazione di diversi tipi di flaconi.
-            Possibilità di usufruire solo della siringa  per installarla nella macchina automatica.
-            La siringa può essere adattata a seconda del prodotto( densi, schiumosi, acidi, ecc.)
-            `,
-
-            // Product 2
-            product2Title: "Prodotto numero 2",
-            product2Desc: "Descrizione completa del prodotto",
-
-            // Contact Section
-            contactTitle: "Non aspettare, contattaci!",
-            namePlaceholder: "Nome completo",
-            messagePlaceholder: "Il tuo messaggio...",
-            sendButton: "Invia Messaggio",
-
-            // Footer
-            phone: "📞 +39 123 456 789",
-            address: "📍 Via dell'Artigianato, 123 - Firenze, Italia",
-            copyright: "© 2023 [Nome Negozio] - Tutti i diritti riservati"
-        },
-        en: {
-            heroSubtitle: "Unique creations handmade with passion",
-
-            product1Title: "Pneumatic Syringe",
-            product1Desc: `Volumetric pneuPneumatic syringe volumetric with glass graduated cylinder, suitable to work foodstuffs and not, from 0 mm to 50 mm, 0 to 100mm, 0 to 250mm.
-                            Possibility to actuate with button or pedal, easy to clean, easy in the necessary adjustments of different types of vials.
-            Possibility to benefit only syringe to install in automatic machine.
-            The syringe can be adapted depending on the product (dense, foamy, acids, etc).
-            matic syringe with graduated glass cylinder...`,
-
-            product2Title: "Product number 2",
-            product2Desc: "Complete product description",
-
-            contactTitle: "Don't wait, contact us!",
-            namePlaceholder: "Full name",
-            messagePlaceholder: "Your message...",
-            sendButton: "Send Message",
-
-            phone: "📞 +39 123 456 789",
-            address: "📍 Craftsmen Street, 123 - Florence, Italy",
-            copyright: "© 2023 [Shop Name] - All rights reserved"
-        }
-    };
-
-    function switchLanguage(lang) {
-        // Update product descriptions
-        document.getElementById('product1-title').textContent = translations[lang].product1Title;
-        document.getElementById('product1-desc').textContent = translations[lang].product1Desc;
-
-        // Update other elements
-        document.querySelector('.hero-subtitle').textContent = translations[lang].heroSubtitle;
-        document.querySelector('.contact-section h2').textContent = translations[lang].contactTitle;
-        document.querySelector('input[placeholder="Nome completo"]').placeholder = translations[lang].namePlaceholder;
-        document.querySelector('textarea').placeholder = translations[lang].messagePlaceholder;
-        document.querySelector('.submit-button').textContent = translations[lang].sendButton;
-
-        // Update footer
-        document.querySelectorAll('footer p')[0].textContent = translations[lang].phone;
-        document.querySelectorAll('footer p')[1].textContent = translations[lang].address;
-        document.querySelectorAll('footer p')[2].textContent = translations[lang].copyright;
-    }
-</script>
-
 <body>
     <section class="main-hero">
         <div class="language-switcher">
@@ -361,8 +365,8 @@
             <button onclick="switchLanguage('en')">EN</button>
         </div>
         <div class="hero-content">
-            <h1 class="company-name">Nome Azienda</h1>
-            <p class="hero-subtitle">Descrizione breve/ Motto es. <br>Creazioni uniche realizzate a mano con passione
+            <h1 class="company-name">Luciano Brun</h1>
+            <p class="hero-subtitle">Soluzioni su misura, risultati che contano.
             </p>
         </div>
     </section>
@@ -370,57 +374,108 @@
     <main class="products-section">
         <div class="products-grid">
             <!-- Prodotto 1 -->
-            <article class="product-card">
+            <article class="product-card"  data-product="product1">
                 <div class="product-image-container">
-                    <img src="images/siringa.jpg" class="product-image">
+                    <img src="images/siringa.jpg" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
-                    <h3 id="product1-title"> Siringa pneumatica</h3>
-                    <p id="product1-desc">Siringa pneumatica volumetrica
-                        con cilindro graduato in vetro trasparente,adatto a lavorare prodotti alimentari e non, da 0 mm
-                        a 50 mm,
-                        0 a 100 mm, 0 a 250 mm. <br>
-
-                        Possibilità di azionamento con pulsante o con pedale, facile da pulire ,facile nelle regolazioni
-                        necessarie alla lavorazione di diversi tipi di flaconi. <br>
-
-
-                        Possibilità di usufruire solo della siringa per installarla nella macchina automatica. <br>
-
-
-                        La siringa può essere adattata a seconda del prodotto( densi, schiumosi, acidi, ecc.) <br>
-                    </p>
+                    <h3 id="product1-title"> Siringa Pneumatica</h3>
+                    <div id="product-summary">
+                    </div>
+                    <p class="product-full-desc" style="display:none;"> Testo completo</p>
                 </div>
             </article>
             <!-- Prodotto 2-->
-            <article class="product-card">
+            <article class="product-card" data-product="product2">
                 <div class="product-image-container">
-                    <img src="images/immagine1.jpeg" Vaso Artigianale" class="product-image">
+                    <img src="images/immagine3.jpeg" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
-                    <h3>Prodotto numero 2</h3>
-                    <p>Descrizione completa del prodotto</p>
+                    <h3>Iris 200</h3>
+                    <p>Riempimento con pompa peristaltica generica di travaso;
+                        Sistema di dosaggio con bilancia
+                        
+                        
+                         (tolleranza di riempimento + /- un decimo di gr per pesata)
+                         (completa di quadro elettrico) <br>
+                        
+                        
+                        Il flacone viene posto in asse alla bilancia posta nella base della macchina , si deve azzerare,poi  premendo i pulsanti eroga il prodotto nel flacone. Il vantaggio di questa macchina è di dedicare una cannuccia per ogni tipo di prodotto,la cannuccia è facilmente  sostituibile
+                        ( cannucce fornite a parte) <br>
+                        La macchina è composta da un pannellino, da dove si può impostare il peso, memorizzare fino a 99 ricette.  <br>
+                        Precisa nel dosaggio. <br>
+
+Semplice da utilizzare e pulire.
+
+                        </p>
                 </div>
             </article>
-            <!-- Prodotto 2 -->
-            <article class="product-card">
+            
+            <!-- Prodotto 3 -->
+            <article class="product-card" data-product="product3">
                 <div class="product-image-container">
-                    <img src="images/immagine3.jpeg" alt="Vaso Artigianale" class="product-image">
+                    <img src="images/Tappatore Vite.jpg" alt="Tappatore vite" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
-                    <h3>Prodotto numero 3</h3>
-                    <p>Descrizione completa del prodotto</p>
+                    <h3>Tappatore Vite</h3>
+                    <p>Tappatore, semiautomatico, ad energia elettrica, è idonea alla chiusura di tappi in metallo anche con salva goccia su bottiglie di vetro . <br>
+                        Questo modello é equipaggiato di testina discendente automatica. <br>
+                        L'operatore deve quindi posizionare la bottiglia sul piattello, premere il pulsante di avviamento e in pochi secondi viene eseguita la filettatura e chiusura del tappo. <br>
+                        Può essere fornita anche con sistema di riempimento. <br>
+                        La macchina è equipaggiata con testa a 4 rulli. <br>
+                        ⦁	Struttura da banco acciaio AISI 304 <br>
+                        ⦁	Comandi 24V <br>
+                        ⦁	Testa discendente con microinterruttore <br>
+                        ⦁	Potenza motore 0,18kW (0,25HP) 380V/50Hz <br>
+                        ⦁	Potenza motore 0,25kW (0,33HP) 220V/50Hz <br>
+                        ⦁	Formato Bottiglie: Dmax 200mm - Hmax 350mm <br>
+                        ⦁	Dimensioni 150 x 810 x 200</p>
                 </div>
             </article>
 
-            <!-- Prodotto 2 -->
+            <!-- Prodotto 5 -->
             <article class="product-card">
                 <div class="product-image-container">
-                    <img src="images/immagine4.jpeg" alt="Scultura in Legno" class="product-image">
+                    <img src="images/Xena 8.jpg" alt="Xena 8" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
-                    <h3>ScProdotto numero 4</h3>
-                    <p>Descrizione completa del prodotto</p>
+                    <h3>Xena 8</h3>
+                    <p>Riempimento, Tappatura ed Etichettatura Integrati <br>
+
+                        Vantaggi Principali: <br>
+                        
+                        Sincronizzazione perfetta: Motori elettrici per movimenti coordinati. <br>
+                        
+                        Design compatto: Dimensioni ridotte vs macchine separate (Lun. 950mm × Lar. 700mm). <br>
+                        
+                        Risparmio:  <br>Costi iniziali e operativi inferiori, conforme norme CE. <br>
+                        
+                        Materiali premium: Struttura in acciaio inossidabile AISI 304. <br>
+                        
+                        Manutenzione semplice: Pulizia rapida e ricambi garantiti. <br>
+                        
+                        Componenti Chiave: <br>
+                        
+                        Siringa riempitrice: Dosaggio preciso (da 10ml a 150ml) con pompa esterna. <br>
+                        
+                        Avvitatore automatico: Per tappi prefilettati in plastica + blocco flacone. <br>
+                        
+                        Etichettatrice: Adesiva per flaconi cilindrici. <br>
+                        
+                        Specifiche Tecniche: <br>
+                        
+                        Produzione: <br>
+                         800-1,000 flaconi/ora (30ml). Scalabile in base al volume. <br>
+                        
+                        Cambio formato: Regolazioni rapide di altezza e volume. <br>
+                        
+                        Opzioni: <br>
+                        
+                        Caricamento tappi automatico con orientatore. <br>
+                        
+                        Marcatore HP-Thermal. <br>
+                        
+                        Kit per formati speciali. <br></p>
 
                 </div>
             </article>
@@ -442,12 +497,110 @@
             </form>
         </div>
     </section>
-
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img class="modal-image" id="modalImage" alt="Product image">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
     <footer>
         <p>📞 +39 123 456 789</p>
         <p>📍 Via dell'Artigianato, 123 - Firenze, Italia</p>
-        <p style="margin-top: 1.5rem; opacity: 0.8;">© 2023 [Nome Negozio] - Tutti i diritti riservati</p>
+        <p style="margin-top: 1.5rem; opacity: 0.8;">© 2025 Luciano Brun - Tutti i diritti riservati</p>
     </footer>
+    <script>
+           const translations = {
+    it: {
+        product1: {
+            title: "Siringa Pneumatica",
+            summary: "Siringa pneumatica volumetrica con cilindro in vetro graduato...",
+            fullDesc: "Siringa pneumatica volumetrica con cilindro graduato in vetro trasparente, adatto a lavorare prodotti alimentari e non, da 0 mm a 50 mm, 0 a 100 mm, 0 a 250 mm.Possibilità di azionamento con pulsante o con pedale, facile da pulire ,facile nelle regolazioni necessarie alla lavorazione di diversi tipi di flaconi.Possibilità di usufruire solo della siringa per installarla nella macchina automatica.La siringa può essere adattata a seconda del prodotto"
+        },
+        product2: {
+            title: "Iris 200",
+            summary: "Riempimento con pompa peristaltica...",
+            fullDesc: "Riempimento con pompa peristaltica generica di travaso; Sistema di dosaggio con bilancia (tolleranza di riempimento + /- un decimo di gr per pesata) (completa di quadro elettrico). Il flacone viene posto in asse alla bilancia posta nella base della macchina , si deve azzerare,poi premendo i pulsanti eroga il prodotto nel flacone. Il vantaggio di questa macchina è di dedicare una cannuccia per ogni tipo di prodotto,la cannuccia è facilmente sostituibile ( cannucce fornite a parte) La macchina è composta da un pannellino, da dove si può impostare il peso, memorizzare fino a 99 ricette. Precisa nel dosaggio. Semplice da utilizzare e pulire."
+        },
+
+        product3: {
+            title: "Iris 200",
+            summary: "Riempimento con pompa peristaltica...",
+            fullDesc: "Riempimento con pompa peristaltica generica di travaso; Sistema di dosaggio con bilancia (tolleranza di riempimento + /- un decimo di gr per pesata) (completa di quadro elettrico). Il flacone viene posto in asse alla bilancia posta nella base della macchina , si deve azzerare,poi premendo i pulsanti eroga il prodotto nel flacone. Il vantaggio di questa macchina è di dedicare una cannuccia per ogni tipo di prodotto,la cannuccia è facilmente sostituibile ( cannucce fornite a parte) La macchina è composta da un pannellino, da dove si può impostare il peso, memorizzare fino a 99 ricette. Precisa nel dosaggio. Semplice da utilizzare e pulire."
+        }
+
+
+        // Aggiungi altri prodotti
+    },
+    en: {
+        product2: { // Aggiungere questa sezione mancante
+            title: "Iris 200",
+            summary: "Filling with peristaltic pump...",
+            fullDesc: "Full description in english..."
+        }
+    }
+};
+
+document.getElementById('productModal').addEventListener('click', (e) => {
+    if(e.target === document.getElementById('productModal')) {
+        document.getElementById('productModal').style.display = 'none';
+    }
+});
+
+// Aggiungi animazione all'apertura
+document.getElementById('productModal').style.animation = 'modalOpen 0.3s ease-out';
+
+// Funzione per aprire il modal
+function openModal(productId) {
+    const lang = document.documentElement.lang || 'it';
+    const product = translations[lang][productId];
+    
+    document.getElementById('modalTitle').textContent = product.title;
+    document.getElementById('modalDescription').textContent = product.fullDesc;
+    document.getElementById('modalImage').src = document.querySelector(`[data-product="${productId}"] img`).src;
+    document.getElementById('productModal').style.display = 'block';
+}
+
+// Aggiungi event listener alle card
+document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const productId = card.dataset.product;
+        openModal(productId);
+    });
+});
+
+// Funzione per chiudere il modal
+document.querySelector('.modal-close').addEventListener('click', () => {
+    document.getElementById('productModal').style.display = 'none';
+});
+
+// Aggiornata funzione switchLanguage
+function switchLanguage(lang) {
+    document.documentElement.lang = lang;
+    
+    // Aggiorna tutti gli elementi con data-translate
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const productId = el.closest('[data-product]').dataset.product;
+        const key = el.dataset.translate;
+        el.textContent = translations[lang][productId][key];
+    });
+    
+    // Aggiorna altri elementi (hero, footer, etc.)
+    // ... (mantieni la logica esistente)
+}
+    
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tutto il codice JS qui
+        });
+
+        function switchLanguage(lang) {
+    // Aggiungi queste linee
+    document.querySelector('.hero-subtitle').textContent = translations[lang].heroSubtitle;
+    document.querySelector('footer p:first-child').textContent = translations[lang].phone;
+}
+    </script>
 </body>
 
 </html>
