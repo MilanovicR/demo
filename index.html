@@ -242,7 +242,7 @@
 
         .modal-image {
             width: 100%;
-            height: 400px;
+            height: auto;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 1.5rem;
@@ -272,8 +272,74 @@
             to { transform: scale(1); opacity: 1; }
         }
 
+
+
+  /* About Section */
+  .about-section {
+            padding: 6rem 0;
+            background: #fff;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: justify;
+        }
+
+        .about-content h2 {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 2.5rem;
+            color: #2a2a2a;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-highlight {
+            display: block;
+            text-align: center;
+            font-style: italic;
+            margin: 2rem 0;
+            color: #c5a482;
+            font-weight: 500;
+        }
+
+        /* About Button */
+        .about-button {
+            position: absolute;
+            bottom: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .about-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(-50%) scale(1.05);
+        }
+
+
+
         /* Responsive Design */
         @media (max-width: 768px) {
+
             .company-name {
                 font-size: 2.8rem;
                 padding: 0 1rem;
@@ -297,11 +363,21 @@
             .modal-image {
                 height: 250px;
             }
+
+                 /* Tasto chi siamo */
+
+                 .about-button {
+                bottom: 25%;
+                padding: 10px 25px;
+                font-size: 1rem; }
+
+            
         }
     </style>
 </head>
 
 <body>
+
     <section class="main-hero" aria-label="Main hero section">
         <div class="language-switcher">
             <button onclick="switchLanguage('it')" aria-label="Switch to Italian">IT</button>
@@ -310,8 +386,10 @@
         <div class="hero-content">
             <h1 class="company-name">Luciano Brun</h1>
             <p class="hero-subtitle" data-translate="heroSubtitle"></p>
+            <a href="#about-section" class="about-button" data-translate="aboutButton"></a>
         </div>
     </section>
+
 
     <main class="products-section">
         <div class="products-grid">
@@ -361,6 +439,14 @@
         </div>
     </main>
 
+    <section class="about-section" id="about-section">
+        <div class="about-content">
+            <h2 data-translate="aboutTitle"></h2>
+            <p data-translate="aboutContent.p1"></p>
+            <p data-translate="aboutContent.p2"></p>
+            <span class="about-highlight" data-translate="aboutHighlight"></span>
+        </div>
+    </section>
     <section class="contact-section">
         <h2 data-translate="contactTitle"></h2>
         <div class="contact-form">
@@ -398,8 +484,8 @@
                 copyright: "© 2025 Luciano Brun - Tutti i diritti riservati",
                 product1: {
                     title: "Siringa Pneumatica",
-                    summary: "Siringa pneumatica volumetrica versatile in vetro graduato trasparente...",
-                    fullDesc: "Siringa pneumatica volumetrica con cilindro graduato in vetro trasparente..."
+                    summary: "Siringa pneumatica volumetrica versatile in vetro graduato trasparente, continua a leggere...",
+                    fullDesc: "Siringa pneumatica volumetrica con cilindro graduato in vetro trasparente Continua a leggere..."
                 },
                 product2: {
                     title: "Iris 200",
@@ -415,8 +501,22 @@
                     title: "Xena 8",
                     summary: "Riempimento, Tappatura ed Etichettatura Integrati...",
                     fullDesc: "Sistema integrato per riempimento, tappatura..."
-                }
-            },
+                },
+                
+// tasto about
+
+                aboutButton: "Chi siamo",
+
+                aboutTitle: "La nostra storia",
+
+                aboutContent: {
+                    p1: "Da oltre 40 anni ci occupiamo della progettazione di macchinari su misura, operando con competenza in tutto il territorio nazionale. Grazie alla nostra esperienza, garantiamo soluzioni innovative e affidabili, rese disponibili in ogni contesto.",
+                    p2: "Il processo inizia con un'attenta fase di progettazione, seguita dalla collaborazione con aziende partner selezionate per la realizzazione delle componenti. Ci occupiamo personalmente del montaggio finale e offriamo un servizio di manutenzione completo, assicurando assistenza continua e garanzia sulla qualità del prodotto."
+                },
+                aboutHighlight: "Unire creatività tecnologica, rete di collaboratori fidati e un impegno concreto verso ogni cliente."
+            
+                
+                            },
             en: {
                 heroSubtitle: "Custom solutions, measurable results.",
                 contactTitle: "Don't wait, contact us!",
@@ -443,7 +543,19 @@
                     title: "Xena 8",
                     summary: "Integrated Filling, Capping and Labeling...",
                     fullDesc: "Integrated system for filling, capping..."
-                }
+                },
+
+                //tasto about
+
+
+                aboutButton: "About Us",
+                aboutTitle: "Our Story",
+                aboutContent: {
+                    p1: "For over 40 years we have been designing custom machinery, operating nationwide with expertise. Thanks to our experience, we guarantee innovative and reliable solutions, available in any context.",
+                    p2: "The process begins with careful design phase, followed by collaboration with selected partner companies for component production. We personally handle final assembly and offer complete maintenance services, ensuring ongoing support and product quality guarantee."
+                },
+                aboutHighlight: "Combining technological creativity, trusted network of collaborators and concrete commitment to every client."
+            
             }
         };
 
