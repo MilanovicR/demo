@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Luciano Brun - Macchinari industriali per riempimento e packaging">
-    <title>Luciano Brun</title>
+    <meta name="description" content="Brun Srl - Macchinari industriali per riempimento e packaging">
+    <title>Brun Srl</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Roboto+Condensed:wght@300;400;700&family=Oswald:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Reset and Base Styles */
@@ -275,6 +275,12 @@
 
 
   /* About Section */
+
+  .about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
   .about-section {
             padding: 6rem 0;
             background: #fff;
@@ -364,12 +370,22 @@
                 height: 250px;
             }
 
-                 /* Tasto chi siamo */
-
-                 .about-button {
-                bottom: 25%;
-                padding: 10px 25px;
-                font-size: 1rem; }
+            .about-section {
+                padding: 3rem 0;
+            }
+            
+            .about-content h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content p {
+                padding: 0 1rem;
+            }
+            
+            .about-highlight {
+                margin: 2rem 0;
+                font-size: 1.1rem;
+            }
 
             
         }
@@ -386,10 +402,20 @@
         <div class="hero-content">
             <h1 class="company-name">Luciano Brun</h1>
             <p class="hero-subtitle" data-translate="heroSubtitle"></p>
-            <a href="#about-section" class="about-button" data-translate="aboutButton"></a>
         </div>
     </section>
 
+    <!-- Sezione Chi Siamo subito dopo l'header -->
+    <section class="about-section">
+        <div class="about-container"> 
+            <div class="about-content">
+                <h2 data-translate="aboutTitle"></h2>
+                <p data-translate="aboutContent.p1"></p>
+                <p data-translate="aboutContent.p2"></p>
+                <span class="about-highlight" data-translate="aboutHighlight"></span>
+            </div>
+        </div> 
+    </section>
 
     <main class="products-section">
         <div class="products-grid">
@@ -438,15 +464,6 @@
             </article>
         </div>
     </main>
-
-    <section class="about-section" id="about-section">
-        <div class="about-content">
-            <h2 data-translate="aboutTitle"></h2>
-            <p data-translate="aboutContent.p1"></p>
-            <p data-translate="aboutContent.p2"></p>
-            <span class="about-highlight" data-translate="aboutHighlight"></span>
-        </div>
-    </section>
     <section class="contact-section">
         <h2 data-translate="contactTitle"></h2>
         <div class="contact-form">
@@ -481,7 +498,7 @@
                 submitButton: "Invia Messaggio",
                 phone: "📞 +39 123 456 789",
                 address: "📍 Via dell'Artigianato, 123 - Firenze, Italia",
-                copyright: "© 2025 Luciano Brun - Tutti i diritti riservati",
+                copyright: "© 2025 Brun Srl - Tutti i diritti riservati",
                 product1: {
                     title: "Siringa Pneumatica",
                     summary: "Siringa pneumatica volumetrica versatile in vetro graduato trasparente, continua a leggere...",
@@ -502,18 +519,13 @@
                     summary: "Riempimento, Tappatura ed Etichettatura Integrati...",
                     fullDesc: "Sistema integrato per riempimento, tappatura..."
                 },
-                
-// tasto about
-
-                aboutButton: "Chi siamo",
-
-                aboutTitle: "La nostra storia",
-
+                heroSubtitle: "Soluzioni su misura, risultati che contano.",
+                aboutTitle: "Chi Siamo",
                 aboutContent: {
                     p1: "Da oltre 40 anni ci occupiamo della progettazione di macchinari su misura, operando con competenza in tutto il territorio nazionale. Grazie alla nostra esperienza, garantiamo soluzioni innovative e affidabili, rese disponibili in ogni contesto.",
                     p2: "Il processo inizia con un'attenta fase di progettazione, seguita dalla collaborazione con aziende partner selezionate per la realizzazione delle componenti. Ci occupiamo personalmente del montaggio finale e offriamo un servizio di manutenzione completo, assicurando assistenza continua e garanzia sulla qualità del prodotto."
                 },
-                aboutHighlight: "Unire creatività tecnologica, rete di collaboratori fidati e un impegno concreto verso ogni cliente."
+                aboutHighlight: "Unire creatività tecnologica, rete di collaboratori fidati e un impegno concreto verso ogni cliente.",
             
                 
                             },
@@ -523,7 +535,7 @@
                 submitButton: "Send Message",
                 phone: "📞 +39 123 456 789",
                 address: "📍 Via dell'Artigianato, 123 - Florence, Italy",
-                copyright: "© 2025 Luciano Brun - All rights reserved",
+                copyright: "© 2025 Brun Srl - All rights reserved",
                 product1: {
                     title: "Pneumatic Syringe",
                     summary: "Versatile volumetric pneumatic syringe...",
@@ -545,16 +557,12 @@
                     fullDesc: "Integrated system for filling, capping..."
                 },
 
-                //tasto about
-
-
-                aboutButton: "About Us",
-                aboutTitle: "Our Story",
+                aboutTitle: "About Us",
                 aboutContent: {
                     p1: "For over 40 years we have been designing custom machinery, operating nationwide with expertise. Thanks to our experience, we guarantee innovative and reliable solutions, available in any context.",
                     p2: "The process begins with careful design phase, followed by collaboration with selected partner companies for component production. We personally handle final assembly and offer complete maintenance services, ensuring ongoing support and product quality guarantee."
                 },
-                aboutHighlight: "Combining technological creativity, trusted network of collaborators and concrete commitment to every client."
+                aboutHighlight: "Combining technological creativity, trusted network of collaborators and concrete commitment to every client.",
             
             }
         };
