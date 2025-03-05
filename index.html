@@ -296,11 +296,25 @@
         }
 
         .about-content h2 {
-            text-align: center;
-            font-size: 2.3rem;
-            margin-bottom: 2.5rem;
-            color: #2a2a2a;
-        }
+    text-align: center;
+    font-size: 2.3rem;
+    margin-bottom: 2.5rem;
+    color: #2a2a2a;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.about-content h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #c5a482;
+    border-radius: 2px;
+}
 
         .about-content p {
             margin-bottom: 1.5rem;
@@ -343,8 +357,36 @@
 
 
 
+        .section-title {
+    text-align: center;
+    font-size: 2.3rem;
+    color: #2a2a2a;
+    margin-bottom: 3rem;
+    grid-column: 1 / -1;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #c5a482;
+}
+
+
+
         /* Responsive Design */
         @media (max-width: 768px) {
+
+            .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
 
             .company-name {
                 font-size: 2.8rem;
@@ -375,8 +417,14 @@
             }
             
             .about-content h2 {
-                font-size: 2rem;
-            }
+        font-size: 2rem;
+        padding-bottom: 0.8rem;
+    }
+    
+    .about-content h2::after {
+        width: 60px;
+        height: 2px;
+    }
             
             .about-content p {
                 padding: 0 1rem;
@@ -419,6 +467,7 @@
 
     <main class="products-section">
         <div class="products-grid">
+            <h2 class="section-title" data-translate="productsTitle"></h2>
             <!-- Prodotto 1 -->
             <article class="product-card" data-product="product1">
                 <div class="product-image-container">
@@ -497,6 +546,7 @@
                 contactTitle: "Non aspettare, contattaci!",
                 submitButton: "Invia Messaggio",
                 phone: "📞 +39 123 456 789",
+                   productsTitle: "I nostri prodotti",
                 address: "📍 Via dell'Artigianato, 123 - Firenze, Italia",
                 copyright: "© 2025 Brun Srl - Tutti i diritti riservati",
                 product1: {
@@ -534,6 +584,7 @@
                 contactTitle: "Don't wait, contact us!",
                 submitButton: "Send Message",
                 phone: "📞 +39 123 456 789",
+                       productsTitle: "Our Products",
                 address: "📍 Via dell'Artigianato, 123 - Florence, Italy",
                 copyright: "© 2025 Brun Srl - All rights reserved",
                 product1: {
