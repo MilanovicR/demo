@@ -229,6 +229,8 @@
             position: relative;
             margin: 2rem auto;
             animation: modalOpen 0.3s ease-out;
+            max-height: 80vh; 
+            overflow-y: auto;
         }
 
         .modal-close {
@@ -378,7 +380,9 @@
     background: #c5a482;
 }
 
-
+.language-switcher button.active {
+  background: rgba(255,255,255,0.4) !important;
+}
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -448,7 +452,7 @@
             <button onclick="switchLanguage('en')" aria-label="Switch to English">EN</button>
         </div>
         <div class="hero-content">
-            <h1 class="company-name">Luciano Brun</h1>
+            <h1 class="company-name">Brun SRL</h1>
             <p class="hero-subtitle" data-translate="heroSubtitle"></p>
         </div>
     </section>
@@ -504,7 +508,7 @@
             <!-- Prodotto 4 -->
             <article class="product-card" data-product="product4">
                 <div class="product-image-container">
-                    <img src="images/Xena 8.jpg" alt="Xena 8" class="product-image" loading="lazy">
+                    <img src="images/Xena-8.jpg" alt="Xena 8" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
                     <h3 data-translate="product4.title"></h3>
@@ -517,8 +521,8 @@
         <h2 data-translate="contactTitle"></h2>
         <div class="contact-form">
             <form>
-                <input type="text" placeholder="Nome completo" required>
-                <input type="email" placeholder="Indirizzo email" required>
+                <input type="text" placeholder="Nome completo" required data-translate="fullName">
+                <input type="email" placeholder="Indirizzo email" required data-translate="email">
                 <textarea placeholder="Il tuo messaggio..." rows="5" required></textarea>
                 <button type="submit" class="submit-button" data-translate="submitButton"></button>
             </form>
@@ -542,38 +546,60 @@
     <script>
         const translations = {
             it: {
+                fullName: "Full Name",
+  email: "Email Address",
+  message: "Your Message",
                 heroSubtitle: "Soluzioni su misura, risultati che contano.",
-                contactTitle: "Non aspettare, contattaci!",
+                contactTitle: "Non aspettare, contattami!",
                 submitButton: "Invia Messaggio",
-                phone: "📞 +39 123 456 789",
+                phone: "📞 +39 327 424 8857",
                    productsTitle: "I nostri prodotti",
-                address: "📍 Via dell'Artigianato, 123 - Firenze, Italia",
+                address: "📍 DA METTERE",
                 copyright: "© 2025 Brun Srl - Tutti i diritti riservati",
                 product1: {
                     title: "Siringa Pneumatica",
-                    summary: "Siringa pneumatica volumetrica versatile in vetro graduato trasparente, continua a leggere...",
-                    fullDesc: "Siringa pneumatica volumetrica con cilindro graduato in vetro trasparente Continua a leggere..."
+                    summary: `Siringa pneumatica professionale per dosaggi precisi e...`,
+                    fullDesc: `Siringa professionale progettata per dosaggi precisi e versatili, ideale per prodotti alimentari e non alimentari. Il cilindro graduato in vetro trasparente garantisce resistenza e visibilità durante l’utilizzo, con tre opzioni di misurazione disponibili: 0-50 mm, 0-100 mm e 0-250 mm.
+L’azionamento è flessibile: scegli tra pulsante manuale o comando a pedale per un controllo pratico e personalizzato. La struttura è facile da pulire e permette regolazioni rapide per adattarsi alla lavorazione di flaconi di diverse dimensioni.
+
+La siringa può essere utilizzata come strumento autonomo oppure installata direttamente in macchinari automatici, offrendo massima adattabilità. Grazie alla sua configurazione, gestisce prodotti con caratteristiche variabili, tra cui liquidi densi, schiumosi, acidi e non solo.
+
+Una soluzione essenziale, affidabile e pronta all’uso, pensata per chi cerca precisione e semplicità operativa.`
                 },
                 product2: {
                     title: "Iris 200",
-                    summary: "Macchina di riempimento precisa e facile da usare...",
-                    fullDesc: "Riempimento con pompa peristaltica generica di travaso..."
+                    summary: "Dotata di un sistema avanzato di travaso a pompa peristaltica e...",
+                    fullDesc: `Dotata di un sistema avanzato di travaso a pompa peristaltica e dosaggio controllato da bilancia integrata, la macchina garantisce una tolleranza di riempimento di ±0,1 grammi per pesata, con quadro elettrico certificato per massima sicurezza e affidabilità. 
+                    Il funzionamento prevede il posizionamento del flacone in asse con la bilancia (situata alla base della macchina), l’azzeramento del peso e l’erogazione del prodotto tramite pulsanti dedicati, che attivano un dosaggio automatico ad alta precisione. 
+                    Tra i vantaggi principali spicca il sistema modulare: ogni tipologia di prodotto richiede una cannuccia dedicata, sostituibile rapidamente per garantire igiene e versatilità (cannucce disponibili separatamente). Grazie al pannello di controllo integrato, è possibile impostare il peso desiderato, memorizzare fino a 99 ricette personalizzate e gestire tutti i parametri operativi in modo semplice e immediato. 
+                    Ideale per applicazioni che richiedono ripetibilità, velocità e accuratezza nel dosaggio di liquidi o semiliquidi.`
                 },
                 product3: {
                     title: "Tappatore Vite",
-                    summary: "Macchina tappatrice semiautomatica elettrica...",
-                    fullDesc: "Tappatore semiautomatico ad energia elettrica..."
+                    summary: "Macchina semiautomatica ad energia elettrica progettata per...",
+                    fullDesc: `Macchina semiautomatica ad energia elettrica progettata per la chiusura precisa di tappi in metallo, anche con salva goccia, su bottiglie di vetro. 
+                    Equipaggiata con testina discendente automatica e testa a 4 rulli, garantisce una chiusura uniforme e rapida: l’operatore posiziona la bottiglia sul piattello, avvia il processo tramite pulsante e, in pochi secondi, la macchina completa filettatura e chiusura del tappo. 
+                    Disponibile anche con sistema di riempimento opzionale per un flusso di lavoro integrato.
+                    La struttura in acciaio AISI 304 garantisce durabilità e igiene, mentre i comandi a 24V e la testina con microinterruttore assicurano sicurezza e controllo. 
+                    Supporta bottiglie con diametro massimo di 200 mm e altezza massima di 350 mm, con dimensioni compatte della macchina (150 x 810 x 200 mm). 
+                    La potenza del motore è configurabile in 0,18 kW (0,25 HP) a 380V/50Hz o 0,25 kW (0,33 HP) a 220V/50Hz, adattandosi alle esigenze dell’ambiente produttivo. 
+                    Ideale per laboratori o piccole linee che richiedono precisione, affidabilità e versatilità.`
                 },
                 product4: {
                     title: "Xena 8",
                     summary: "Riempimento, Tappatura ed Etichettatura Integrati...",
-                    fullDesc: "Sistema integrato per riempimento, tappatura..."
+                    fullDesc: `Macchina Combinata per Riempire, Tappare ed Etichettare Flaconi Cilindrici
+Ideale per integrare in un’unica soluzione le operazioni di riempimento, chiusura ed etichettatura di flaconi cilindrici, il Monoblocco XENA 8 unisce sincronismo, efficienza e compattezza. Tutti i movimenti sono gestiti da motori elettrici sincronizzati, garantendo precisione e fluidità operativa. Progettato con struttura in acciaio inossidabile AISI 304, offre durabilità, facilità di lavaggio e conformità alle norme CE, complete di protezioni antinfortunistiche integrate.
+
+La siringa riempitrice aspira il prodotto da un recipiente esterno (non incluso) e inietta la dose desiderata con accuratezza, mentre l’avvitatore semiautomatico, progettato per tappi prefilettati in plastica, blocca il flacone durante la chiusura per un risultato ottimale. L’etichettatrice adesiva è specifica per flaconi cilindrici, con regolazioni rapide in altezza e volume di riempimento. Il cambio formato è semplificato, adattandosi a contenitori da 10 ml a 150 ml.
+
+Tra le opzioni disponibili: caricamento automatico dei tappi con orientatore, gruppi accessori per formati cilindrici aggiuntivi e marcatore a sistema Hp. Con ingombri contenuti (Lun. 950 mm x Lar. 700 mm; h piano lavoro 900/950 mm, h totale 1600 mm), la macchina raggiunge una produzione di 800-1000 flaconi/ora con formati da 30 ml, variabile in base al volume di riempimento.`
                 },
                 heroSubtitle: "Soluzioni su misura, risultati che contano.",
-                aboutTitle: "Chi Siamo",
+                aboutTitle: "Chi Sono",
                 aboutContent: {
-                    p1: "Da oltre 40 anni ci occupiamo della progettazione di macchinari su misura, operando con competenza in tutto il territorio nazionale. Grazie alla nostra esperienza, garantiamo soluzioni innovative e affidabili, rese disponibili in ogni contesto.",
-                    p2: "Il processo inizia con un'attenta fase di progettazione, seguita dalla collaborazione con aziende partner selezionate per la realizzazione delle componenti. Ci occupiamo personalmente del montaggio finale e offriamo un servizio di manutenzione completo, assicurando assistenza continua e garanzia sulla qualità del prodotto."
+                        p1: "Da oltre 40 anni mi occupo della progettazione di macchinari su misura, operando con competenza in tutto il territorio nazionale. Grazie alla mia esperienza, garantisco soluzioni innovative e affidabili, rese disponibili in ogni contesto.",
+                    p2: "Il processo inizia con un'attenta fase di progettazione, seguita dalla collaborazione con aziende partner selezionate per la realizzazione delle componenti. Assicurando assistenza continua e garanzia sulla qualità del prodotto."
                 },
                 aboutHighlight: "Unire creatività tecnologica, rete di collaboratori fidati e un impegno concreto verso ogni cliente.",
             
@@ -581,37 +607,57 @@
                             },
             en: {
                 heroSubtitle: "Custom solutions, measurable results.",
-                contactTitle: "Don't wait, contact us!",
+                contactTitle: "Don't wait, contact me!",
                 submitButton: "Send Message",
-                phone: "📞 +39 123 456 789",
+                phone: "📞 +39 327 424 8857",
                        productsTitle: "Our Products",
-                address: "📍 Via dell'Artigianato, 123 - Florence, Italy",
+                address: "📍 DA METTERE",
                 copyright: "© 2025 Brun Srl - All rights reserved",
                 product1: {
-                    title: "Pneumatic Syringe",
-                    summary: "Versatile volumetric pneumatic syringe...",
-                    fullDesc: "Volumetric pneumatic syringe with graduated glass cylinder..."
+                    title: "Volumetric Pneumatic Filling Syringe",
+                    summary: "Volumetric Pneumatic Filling Syringe for...",
+                    fullDesc: `Professional-grade syringe engineered for precise and versatile dosing, suitable for both food and non-food products. The transparent glass graduated cylinder ensures durability and clear visibility during operation, offering three measurement ranges: 0-50 mm, 0-100 mm, and 0-250 mm.
+
+Operation is flexible: choose between manual push-button or foot pedal control for ergonomic and customizable handling. The easy-to-clean design allows quick adjustments to accommodate containers of varying sizes.
+
+This syringe can function as a standalone tool or be seamlessly integrated into automated machinery, ensuring maximum adaptability. Its configuration enables it to handle products with diverse characteristics, including dense, foamy, and acidic liquids, among others.
+
+A reliable, ready-to-use solution designed for precision and operational simplicity, ideal for users prioritizing accuracy and ease of integration.`
                 },
                 product2: {
                     title: "Iris 200",
                     summary: "Precision filling machine with peristaltic pump...",
-                    fullDesc: "Filling with generic transfer peristaltic pump..."
+                    fullDesc: `Equipped with an advanced peristaltic pump transfer system and dosing controlled by an integrated scale, the machine ensures a filling tolerance of ±0.1 grams per weighing, complemented by a certified electrical panel for maximum safety and reliability.
+
+The operation involves positioning the bottle in alignment with the scale (located at the base of the machine), resetting the weight, and dispensing the product via dedicated buttons, which trigger automatic high-precision dosing.
+
+A key advantage is its modular system: each product type requires a dedicated tube, which can be quickly replaced to ensure hygiene and versatility (tubes available separately). Through the integrated control panel, users can set the desired weight, store up to 99 custom recipes, and manage all operational parameters easily and directly.
+
+Ideal for applications requiring repeatability, speed, and accuracy in dosing liquids or semi-liquids.`
                 },
                 product3: {
                     title: "Screw Capper",
                     summary: "Semi-automatic electric capping machine...",
-                    fullDesc: "Semi-automatic electric capping machine..."
+                    fullDesc: `Semi-Automatic Electric Capping Machine for Metal Caps with Drip-Proof Inserts
+Semi-automatic electric machine designed for precise sealing of metal caps, including those with drip-proof inserts, on glass bottles. Equipped with an automatic descending capping head and a 4-roller sealing system, it ensures uniform and rapid closure: the operator places the bottle on the platform, activates the process via a button, and within seconds, the machine completes threading and sealing of the cap. Also available with an optional integrated filling system for streamlined workflows.
+
+The AISI 304 stainless steel structure guarantees durability and hygiene, while 24V controls and the microswitch-equipped capping head ensure safety and precise operation. Compatible with bottles up to 200 mm in diameter and 350 mm in height, the machine itself features a compact design (150 x 810 x 200 mm). Motor power is configurable as 0.18 kW (0.25 HP) at 380V/50Hz or 0.25 kW (0.33 HP) at 220V/50Hz, adapting to diverse production environments. Ideal for laboratories or small-scale production lines requiring precision, reliability, and versatility.`
                 },
                 product4: {
                     title: "Xena 8",
-                    summary: "Integrated Filling, Capping and Labeling...",
-                    fullDesc: "Integrated system for filling, capping..."
+                    summary: "All-in-One Solution for Filling, Capping & Labeling...",
+                    fullDesc: `Combined Machine for Filling, Capping, and Labeling Cylindrical Containers
+Ideal for integrating filling, capping, and labeling operations for cylindrical containers into a single solution, the XENA 8 Monoblock combines synchronization, efficiency, and compactness. All movements are managed by synchronized electric motors, ensuring precision and smooth operation. Designed with a stainless steel AISI 304 structure, it offers durability, easy cleaning, CE-certified with integrated safety guards, including integrated safety guards.
+
+The filling syringe draws product from an external container (not included) and injects the desired dose accurately, while the semi-automatic capper, designed for pre-threaded plastic caps, secures the container during closure for optimal results. The adhesive labeler is tailored for cylindrical containers, with quick adjustments for height and filling volume. Format changes are simplified, adapting to containers from 10 ml to 150 ml.
+
+Available options include: automatic cap loading with an orienter, accessory groups for additional cylindrical formats, and an HP system marker. With compact dimensions (L: 950 mm x W: 700 mm; worktable height 900/950 mm, total height 1600 mm), the machine achieves a production rate of 800-1000 containers/hour with 30 ml formats, varying based on filling volume. Cost-effective in purchase and operation`
                 },
 
-                aboutTitle: "About Us",
+                aboutTitle: "About Me",
                 aboutContent: {
-                    p1: "For over 40 years we have been designing custom machinery, operating nationwide with expertise. Thanks to our experience, we guarantee innovative and reliable solutions, available in any context.",
-                    p2: "The process begins with careful design phase, followed by collaboration with selected partner companies for component production. We personally handle final assembly and offer complete maintenance services, ensuring ongoing support and product quality guarantee."
+                    p1: "For over 40 years, I have specialized in designing custom-made machinery, operating with expertise across the country. Leveraging my experience, I deliver innovative and reliable solutions tailored to any operational context.",
+                    p2: "The process begins with meticulous design planning, followed by collaboration with carefully selected partner companies for component manufacturing. Ensuring continuous support and product quality guarantee."
                 },
                 aboutHighlight: "Combining technological creativity, trusted network of collaborators and concrete commitment to every client.",
             
@@ -644,6 +690,8 @@
 
         // Language Switching
         function switchLanguage(lang) {
+            
+        
             document.documentElement.lang = lang;
             
             // Update General Elements
@@ -656,6 +704,9 @@
                     el.textContent = translations[lang][key];
                 }
             });
+
+            document.querySelectorAll('.language-switcher button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
         }
 
         // Initialize Italian as default
